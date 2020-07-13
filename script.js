@@ -1,4 +1,6 @@
 const operate = (a, operator, b) => {
+  a = parseFloat(displayValue, 10)
+  b = parseFloat(displayValue, 10)
 
 const add = (a,b) => {
   return a + b;
