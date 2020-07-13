@@ -1,6 +1,4 @@
 const operate = (a, operator, b) => {
-  a = parseFloat(displayValue, 10)
-  b = parseFloat(displayValue, 10)
 
 const add = (a,b) => {
   return a + b;
@@ -29,7 +27,7 @@ const tooMuch = (number) => {
   if (number.length > length)
    {alert("This calculator only goes to 9 places")}
     number = number.substring(0,length)
-    return number}
+    return number};
 
 let a
 let b
@@ -58,7 +56,7 @@ function cFunc() {
   operator = undefined
   document.querySelector("#screen").innerHTML = "Cleared"
   document.querySelector("#operatorWindow").innerHTML = ""
-    }
+    };
 
 const posnegButton = document.querySelector("#posnegButton");
 posnegButton.addEventListener("click", posnegFunc);
@@ -73,7 +71,6 @@ function percentFunc() {
    displayValue = operate(a, "*", 0.01)
    displayValue = tooMuch(displayValue)
    document.querySelector("#screen").innerHTML = displayValue
-   console.log(a, operator, b)
    document.querySelector("#operatorWindow").innerHTML = "%"
    }
 
@@ -316,6 +313,7 @@ function twoFunc() {
     document.querySelector("#screen").innerHTML = displayValue + 2
     displayValue = displayValue.concat(two)
   }
+  console.log("a op b is " + a, operator, b)
   if (displayValue.length > length) {
     alert(lengthWarning)
     displayValue = displayValue.substring(0,length)}}
@@ -339,6 +337,7 @@ function threeFunc() {
     document.querySelector("#screen").innerHTML = displayValue + 3
     displayValue = displayValue.concat(three)
   }
+  console.log("a op b is " + a, operator, b)
   if (displayValue.length > length) {
     alert()
     displayValue = displayValue.substring(0,length)}}
@@ -347,14 +346,17 @@ function threeFunc() {
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", plusFunc);
 function plusFunc() {
-  a = parseFloat(displayValue, 10)
   if (operator === undefined || operator === "=") 
-  {
-  operator = "+"
-  displayValue ="" }
+    {
+    a = parseFloat(displayValue, 10)
+    operator = "+"
+    displayValue = ""
+    console.log("a op b is " + a, operator, b)
+    }
   else if (operator == "/" && displayValue == "0") {alert(snark)}
-  else if (operator !== undefined) 
-  {b = parseFloat(displayValue, 10)
+  else if (operator !== undefined) {
+   b = parseFloat(displayValue, 10)
+   a = parseFloat(a)
    a = operate(a, operator, b)
    a = tooMuch(a)
    document.querySelector("#screen").innerHTML = a
