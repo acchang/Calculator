@@ -1,0 +1,101 @@
+        #titleContainer {
+        width: 650px;
+        margin: 0 auto;
+        position: relative;    
+        font-size: xx-large;
+        font-weight: 900;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;    
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        }
+
+        #title {
+        margin:0 auto;
+        position: relative;
+        }
+
+        #calcContainer {
+        width: 800px;
+        margin: 0 auto;
+        position: relative;
+        }
+
+        #calcframe {
+        height: 700px;
+        width: 420px;
+        background-color: #181616;
+        position: relative;
+        margin: 0 auto;    
+        z-index: 1;
+        }
+
+        #screenContainer {
+        height: 150px;
+        width: 380px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        }
+
+        #screen {
+        height: 50px;
+        width: 220px;
+        margin: 0 auto;
+        top: 20px;
+        position: relative; 
+        display: flex;
+        flex-wrap: wrap;
+        background-color: whitesmoke;
+        z-index: 3;
+        font-size: xx-large;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 30px;
+        }
+        
+        #operatorWindow {
+        height: 50px;
+        width: 50px;
+        margin: 0 auto;
+        top: 20px;
+        position: relative; 
+        background-color: whitesmoke;
+        z-index: 3;
+        font-size: xx-large;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px;
+        }
+
+
+        #buttonContainer {
+        width: 372px;
+        height: 500px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        }
+
+        .buttons {
+        flex-grow: calc(100/4);
+        height: 40px;
+        width: 40px;
+        background-color: rgb(160, 229, 250);
+        font-size: xx-large;
+        font-weight: 900;
+        border-radius: 15%;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+        position: relative;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto; 
+        margin: 5px;
+        top: 20px;
+        z-index: 2;
+        }
