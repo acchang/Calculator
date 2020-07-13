@@ -89,6 +89,7 @@ function divideFunc() {
        a = operate(a, operator, b)
        a = tooMuch(a)
        document.querySelector("#screen").innerHTML = a
+       console.log("toobig a op b" + a, operator, b)
        displayValue =""
        operator = "/"
        }
