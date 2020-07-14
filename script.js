@@ -86,6 +86,7 @@ function divideFunc() {
       else if (operator == "/" && displayValue == "0") {alert(snark)}
       else if (operator !== undefined) 
       {b = parseFloat(displayValue, 10)
+       a = parseFloat(a)
        a = operate(a, operator, b)
        a = tooMuch(a)
        document.querySelector("#screen").innerHTML = a
@@ -176,6 +177,7 @@ function xFunc() {
     else if (operator == "/" && displayValue == "0") {alert(snark)}
     else if (operator !== undefined) 
     {b = parseFloat(displayValue, 10)
+     a = parseFloat(a)
      a = operate(a, operator, b)
      a = tooMuch(a)
      document.querySelector("#screen").innerHTML = a
@@ -264,6 +266,7 @@ function subtractFunc() {
   else if (operator == "/" && displayValue == "0") {alert(snark)}
   else if (operator !== undefined) 
   {b = parseFloat(displayValue, 10)
+   a = parseFloat(a)
    a = operate(a, operator, b)
    a = tooMuch(a)
    document.querySelector("#screen").innerHTML = a
@@ -358,7 +361,9 @@ function plusFunc() {
   else if (operator !== undefined) {
    b = parseFloat(displayValue, 10)
    a = parseFloat(a)
+   console.log(a, typeof(a))
    a = operate(a, operator, b)
+   console.log(a, typeof(a))
    a = tooMuch(a)
    document.querySelector("#screen").innerHTML = a
    displayValue =""
