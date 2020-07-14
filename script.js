@@ -77,8 +77,8 @@ function percentFunc() {
 const divideButton = document.querySelector("#divideButton");
 divideButton.addEventListener("click", divideFunc);
 function divideFunc() {
-      console.log(operator)
-      if (operator === undefined || operator === "=") 
+      if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+      else if (operator === undefined || operator === "=") 
       {a = parseFloat(displayValue, 10)
        operator = "/"
       displayValue =""
@@ -169,7 +169,8 @@ const xButton = document.querySelector("#xButton");
 xButton.addEventListener("click", xFunc);
 function xFunc() {
     console.log(operator)
-    if (operator === undefined || operator === "=") 
+    if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+    else if (operator === undefined || operator === "=") 
     {a = parseFloat(displayValue, 10)
      operator = "*"
     displayValue =""
@@ -257,8 +258,8 @@ function sixFunc() {
 const subtractButton = document.querySelector("#subtractButton");
 subtractButton.addEventListener("click", subtractFunc);
 function subtractFunc() {
-  console.log(operator)
-  if (operator === undefined || operator === "=") 
+  if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+  else if (operator === undefined || operator === "=") 
   {a = parseFloat(displayValue, 10)
    operator = "-"
   displayValue =""
@@ -350,7 +351,8 @@ function threeFunc() {
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", plusFunc);
 function plusFunc() {
-  if (operator === undefined || operator === "=") 
+  if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+  else if (operator === undefined || operator === "=") 
     {
     a = parseFloat(displayValue, 10)
     operator = "+"
