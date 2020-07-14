@@ -375,16 +375,34 @@ function plusFunc() {
 const zeroButton = document.querySelector("#zeroButton");
 zeroButton.addEventListener("click", zeroFunc);
 function zeroFunc() {
-  if (operator === "=" || displayValue == "0") 
-    {displayValue=""
+  if (operator === "=" && displayValue == "0") 
+    {displayValue="0"
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue}
-  else document.querySelector("#screen").innerHTML = displayValue
-  displayValue = displayValue.concat(zero).substring(0,length)
-  if (displayValue.length > length) {
-    alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}
+    document.querySelector("#screen").innerHTML = "0"}
+  else if (operator != "=" && displayValue == "0") 
+    {displayValue="0"
+    document.querySelector("#screen").innerHTML = "0"}
+  else if (operator === "=" && displayValue.includes(".")){
+      operator = undefined
+      document.querySelector("#screen").innerHTML = displayValue + 0
+      displayValue = displayValue.concat(zero)
+    }
+  else if (operator === "=" && !displayValue.includes(".")){
+    displayValue=""
+    operator = undefined
+    document.querySelector("#screen").innerHTML = displayValue + 0
+    displayValue = displayValue.concat(zero)
   }
+  else {
+    document.querySelector("#screen").innerHTML = displayValue + 0
+    displayValue = displayValue.concat(zero)
+  }
+  if (displayValue.length > length) {
+    alert()
+    displayValue = displayValue.substring(0,length)}}
+
+
+
 
 const backButton = document.querySelector("#backButton");
 backButton.addEventListener("click", backFunc);
