@@ -409,6 +409,7 @@ const evaluateButton = document.querySelector("#evaluateButton");
 evaluateButton.addEventListener("click", evaluateFunc);
 function evaluateFunc() {
   b = parseFloat(displayValue, 10)
+  a = parseFloat(a)
   if (operator == "/" && b == "0") {alert(snark)}
   else 
   a = operate(a, operator, b)
