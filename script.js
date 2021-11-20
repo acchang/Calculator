@@ -463,11 +463,16 @@ let keyboard = {
   13: evaluateFunc
 };
 
-document.addEventListener("keydown", checkKeyPressed, false);
+document.onkeydown = checkKeyPressed
 function checkKeyPressed(e) {
-    if (keyboard[e.keyCode] != undefined) {
-         keyboard[e.keyCode]();}
-};
+  if (keyboard[e.keyCode])
+      keyboard[e.keyCode]();
+}
+// document.addEventListener("keydown", checkKeyPressed, false);
+// function checkKeyPressed(e) {
+//     if (keyboard[e.keyCode] != undefined) {
+//          keyboard[e.keyCode]();}
+// };
 
 
 // Two bugs I left alone:
