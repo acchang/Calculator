@@ -173,7 +173,7 @@ function xFunc() {
     else if (operator === undefined || operator === "=") 
     {a = parseFloat(displayValue, 10)
      operator = "*"
-    displayValue =""
+    displayValue = ""
       }
     else if (operator == "/" && displayValue == "0") {alert(snark)}
     else if (operator !== undefined) 
@@ -182,7 +182,7 @@ function xFunc() {
      a = operate(a, operator, b)
      a = tooMuch(a)
      document.querySelector("#screen").innerHTML = a
-     displayValue =""
+     displayValue = ""
      operator = "*"
      }
      document.querySelector("#operatorWindow").innerHTML = "x"
