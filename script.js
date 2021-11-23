@@ -43,7 +43,7 @@ const nine = "9"
 let a = zero
 let b
 let operator
-let displayValue = ""
+let displayValue = "0"
 let length = 9
 
 const snark = "Dividing by zero yields infinity"
@@ -80,345 +80,324 @@ function percentFunc() {
 const divideButton = document.querySelector("#divideButton");
 divideButton.addEventListener("click", divideFunc);
 function divideFunc() {
-      // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-      // else 
-      
-      if (operator === undefined || operator === "=") 
-      {a = parseFloat(displayValue, 10)
-       operator = "/"
-      displayValue =""
-        }
-      else if (operator == "/" && displayValue == "0") {alert(snark)}
-      else if (operator !== undefined) 
-      {b = parseFloat(displayValue, 10)
-       a = parseFloat(a)
-       a = operate(a, operator, b)
-       a = tooMuch(a)
-       document.querySelector("#screen").innerHTML = a
-       console.log("toobig a op b" + a, operator, b)
-       displayValue =""
-       operator = "/"
-       }
-       document.querySelector("#operatorWindow").innerHTML = operator
-};
-
-// const sevenButton = document.querySelector("#sevenButton");
-// sevenButton.addEventListener("click", sevenFunc);
-// function sevenFunc() {  
-//   if (operator === "=" && displayValue.includes(".")){
-//     operator = undefined
-//     document.querySelector("#screen").innerHTML = displayValue + 7
-//     displayValue = displayValue.concat(seven)
-//   }
-//   else if (operator === "=" && !displayValue.includes(".")){
-//     displayValue=""
-//     operator = undefined
-//     document.querySelector("#screen").innerHTML = displayValue + 7
-//     displayValue = displayValue.concat(seven)
-//   }
-//   else {
-//     document.querySelector("#screen").innerHTML = displayValue + 7
-//     displayValue = displayValue.concat(seven)
-//   }
-//   if (displayValue.length > length) {
-//     alert(lengthWarning)
-//     displayValue = displayValue.substring(0,length)}}
-
-
+  if (operator == "/" && displayValue == "0") {alert(snark)}
+  else if (operator === undefined || operator === "=")
+    {a = parseFloat(displayValue)
+    operator = "/"
+    displayValue = ""
+    }
+  else if (operator !== undefined && displayValue == "") {
+    operator = "/"
+    }
+  else if (operator !== undefined) {
+    b = parseFloat(displayValue)
+    a = parseFloat(a)
+    a = operate(a, operator, b)
+    // a = tooMuch(a)
+    document.querySelector("#screen").innerHTML = a
+    displayValue =""
+    operator = "/"
+    }
+    document.querySelector("#operatorWindow").innerHTML = operator
+  }
 
 const sevenButton = document.querySelector("#sevenButton");
 sevenButton.addEventListener("click", sevenFunc);
 function sevenFunc() {  
-  if ((displayValue=="" && operator === undefined) || (displayValue=="" && operator === "="))
+  if (operator === "=")
     {
-    console.log("no OP or OP =")
-    displayValue=""
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
     document.querySelector("#screen").innerHTML = 7
     displayValue = seven
     }
-  else if ((displayValue != "" && operator === undefined) || (displayValue != "" && operator === "="))
+  else if (displayValue == "0") 
     {
-    console.log("test case")
-    operator = undefined
     document.querySelector("#screen").innerHTML = 7
     displayValue = seven
-// the current way I cannot concat after evaluating, it is just one digit and no more
-// afetr eval, DV != ""
-// if I set DV to nil then I can concat but I cannot start by multiplying by 7
     }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 7
     displayValue = displayValue.concat(seven)
+    }
+  if (displayValue.length > length) {
+    alert(lengthWarning)
+    displayValue = displayValue.substring(0,length)}
   }
+
+const eightButton = document.querySelector("#eightButton");
+eightButton.addEventListener("click", eightFunc);
+function eightFunc() {  
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
+    operator = undefined
+    document.querySelector("#screen").innerHTML = 8
+    displayValue = eight
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 8
+    displayValue = eight
+    }
+  else {
+    document.querySelector("#screen").innerHTML = displayValue + 8
+    displayValue = displayValue.concat(eight)
+    }
+  if (displayValue.length > length) {
+    alert(lengthWarning)
+    displayValue = displayValue.substring(0,length)}
+  }
+
+const nineButton = document.querySelector("#nineButton");
+nineButton.addEventListener("click", nineFunc);
+function nineFunc() {  
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
+    operator = undefined
+    document.querySelector("#screen").innerHTML = 9
+    displayValue = nine
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 9
+    displayValue = nine
+    }
+  else {
+    document.querySelector("#screen").innerHTML = displayValue + 9
+    displayValue = displayValue.concat(nine)
+    }
   if (displayValue.length > length) {
     alert(lengthWarning)
     displayValue = displayValue.substring(0,length)}
   }
 
 
-  // problem, after evaluating I want to start from seven but it concats
-
-    
-
-const eightButton = document.querySelector("#eightButton");
-eightButton.addEventListener("click", eightFunc);
-function eightFunc() {
-  if (operator === "=" && displayValue.includes(".")){
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 8
-    displayValue = displayValue.concat(eight)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 8
-    displayValue = displayValue.concat(eight)
-  }
-  else {
-    document.querySelector("#screen").innerHTML = displayValue + 8
-    displayValue = displayValue.concat(eight)
-  }
-  if (displayValue.length > length) {
-    alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
-
-const nineButton = document.querySelector("#nineButton");
-nineButton.addEventListener("click", nineFunc);
-function nineFunc() {
-  if (operator === "=" && displayValue.includes(".")){
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 9
-    displayValue = displayValue.concat(nine)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 9
-    displayValue = displayValue.concat(nine)
-  }
-  else {
-    document.querySelector("#screen").innerHTML = displayValue + 9
-    displayValue = displayValue.concat(nine)
-  }
-  if (displayValue.length > length) {
-    alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
-
-
 const xButton = document.querySelector("#xButton");
 xButton.addEventListener("click", xFunc);
 function xFunc() {
-    console.log(operator)
-    // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-    // else 
-    
-    if (operator === undefined || operator === "=") 
-    {a = parseFloat(displayValue, 10)
-     operator = "*"
+  if (operator == "/" && displayValue == "0") {alert(snark)}
+  else if (operator === undefined || operator === "=")
+    {a = parseFloat(displayValue)
+    operator = "*"
     displayValue = ""
-      }
-    else if (operator == "/" && displayValue == "0") {alert(snark)}
-    else if (operator !== undefined) 
-    {b = parseFloat(displayValue, 10)
-     a = parseFloat(a)
-     a = operate(a, operator, b)
-     a = tooMuch(a)
-     document.querySelector("#screen").innerHTML = a
-     displayValue = ""
-     operator = "*"
-     }
-     document.querySelector("#operatorWindow").innerHTML = "x"
-};
+    }
+  else if (operator !== undefined && displayValue == "") {
+    operator = "*"
+    }
+  else if (operator !== undefined) {
+    b = parseFloat(displayValue)
+    a = parseFloat(a)
+    a = operate(a, operator, b)
+    // a = tooMuch(a)
+    document.querySelector("#screen").innerHTML = a
+    displayValue =""
+    operator = "*"
+    }
+    document.querySelector("#operatorWindow").innerHTML = operator
+  }
 
 const fourButton = document.querySelector("#fourButton");
 fourButton.addEventListener("click", fourFunc);
-function fourFunc() {
-  if (operator === "=" && displayValue.includes(".")){
+function fourFunc() {  
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 4
-    displayValue = displayValue.concat(four)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 4
-    displayValue = displayValue.concat(four)
-  }
+    document.querySelector("#screen").innerHTML = 4
+    displayValue = four
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 4
+    displayValue = four
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 4
     displayValue = displayValue.concat(four)
-  }
+    }
   if (displayValue.length > length) {
     alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+    displayValue = displayValue.substring(0,length)}
+  }
 
 const fiveButton = document.querySelector("#fiveButton");
 fiveButton.addEventListener("click", fiveFunc);
-function fiveFunc() {
-  if (operator === "=" && displayValue.includes(".")){
+function fiveFunc() {  
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 5
-    displayValue = displayValue.concat(five)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 5
-    displayValue = displayValue.concat(five)
-  }
+    document.querySelector("#screen").innerHTML = 5
+    displayValue = five
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 5
+    displayValue = five
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 5
     displayValue = displayValue.concat(five)
-  }
+    }
   if (displayValue.length > length) {
     alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+    displayValue = displayValue.substring(0,length)}
+  }
 
 
 const sixButton = document.querySelector("#sixButton");
 sixButton.addEventListener("click", sixFunc);
 function sixFunc() {  
-  if (operator === "=" && displayValue.includes(".")){
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 6
-    displayValue = displayValue.concat(six)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 6
-    displayValue = displayValue.concat(six)
-  }
+    document.querySelector("#screen").innerHTML = 6
+    displayValue = six
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 6
+    displayValue = six
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 6
     displayValue = displayValue.concat(six)
-  }
+    }
   if (displayValue.length > length) {
     alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+    displayValue = displayValue.substring(0,length)}
+  }
+      
+
 
 const subtractButton = document.querySelector("#subtractButton");
 subtractButton.addEventListener("click", subtractFunc);
 function subtractFunc() {
-  // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-  // else 
-  
-  if (operator === undefined || operator === "=") 
-  {a = parseFloat(displayValue, 10)
-   operator = "-"
-  displayValue =""}
-  else if (operator == "/" && displayValue == "0") {alert(snark)}
-  else if (operator !== undefined) 
-  {b = parseFloat(displayValue, 10)
-   a = parseFloat(a)
-   a = operate(a, operator, b)
-   a = tooMuch(a)
-   document.querySelector("#screen").innerHTML = a
-   displayValue =""
-   operator = "-"
-   }
-   document.querySelector("#operatorWindow").innerHTML = operator
-}
+  if (operator == "/" && displayValue == "0") {alert(snark)}
+  else if (operator === undefined || operator === "=")
+    {a = parseFloat(displayValue)
+    operator = "-"
+    displayValue = ""
+    }
+  else if (operator !== undefined && displayValue == "") {
+    operator = "-"
+    }
+  else if (operator !== undefined) {
+    b = parseFloat(displayValue)
+    a = parseFloat(a)
+    a = operate(a, operator, b)
+    // a = tooMuch(a)
+    document.querySelector("#screen").innerHTML = a
+    displayValue =""
+    operator = "-"
+    }
+    document.querySelector("#operatorWindow").innerHTML = operator
+  }
+
 
 const oneButton = document.querySelector("#oneButton");
 oneButton.addEventListener("click", oneFunc);
 function oneFunc() {  
-  if (operator === "=" && displayValue.includes(".")){
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 1
-    displayValue = displayValue.concat(one)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 1
-    displayValue = displayValue.concat(one)
-  }
+    document.querySelector("#screen").innerHTML = 1
+    displayValue = one
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 1
+    displayValue = one
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 1
     displayValue = displayValue.concat(one)
-  }
+    }
   if (displayValue.length > length) {
     alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+    displayValue = displayValue.substring(0,length)}
+  }
 
 
-const twoButton = document.querySelector("#twoButton");
-twoButton.addEventListener("click", twoFunc);
-function twoFunc() {  
-  if (operator === "=" && displayValue.includes(".")){
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 2
-    displayValue = displayValue.concat(two)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 2
-    displayValue = displayValue.concat(two)
-  }
-  else {
-    document.querySelector("#screen").innerHTML = displayValue + 2
-    displayValue = displayValue.concat(two)
-  }
-  console.log("a op b is " + a, operator, b)
-  if (displayValue.length > length) {
-    alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+  const twoButton = document.querySelector("#twoButton");
+  twoButton.addEventListener("click", twoFunc);
+  function twoFunc() {  
+    if (operator === "=")
+      {
+      document.querySelector("#operatorWindow").innerHTML = ""
+      operator = undefined
+      document.querySelector("#screen").innerHTML = 2
+      displayValue = two
+      }
+    else if (displayValue == "0") 
+      {
+      document.querySelector("#screen").innerHTML = 2
+      displayValue = two
+      }
+    else {
+      document.querySelector("#screen").innerHTML = displayValue + 2
+      displayValue = displayValue.concat(two)
+      }
+    if (displayValue.length > length) {
+      alert(lengthWarning)
+      displayValue = displayValue.substring(0,length)}
+    }
 
 
 const threeButton = document.querySelector("#threeButton");
 threeButton.addEventListener("click", threeFunc);
-function threeFunc() {
-  if (operator === "=" && displayValue.includes(".")){
+function threeFunc() {  
+  if (operator === "=")
+    {
+    document.querySelector("#operatorWindow").innerHTML = ""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 3
-    displayValue = displayValue.concat(three)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
-    displayValue=""
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 3
-    displayValue = displayValue.concat(three)
-  }
+    document.querySelector("#screen").innerHTML = 3
+    displayValue = three
+    }
+  else if (displayValue == "0") 
+    {
+    document.querySelector("#screen").innerHTML = 3
+    displayValue = three
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 3
     displayValue = displayValue.concat(three)
-  }
-  console.log("a op b is " + a, operator, b)
+    }
   if (displayValue.length > length) {
-    alert()
-    displayValue = displayValue.substring(0,length)}}
+    alert(lengthWarning)
+    displayValue = displayValue.substring(0,length)}
+  }
+
 
 
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", plusFunc);
 function plusFunc() {
-  // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-  // else 
-  
-  if (operator === undefined || operator === "=") 
-    {
-    a = parseFloat(displayValue, 10)
+  if (operator == "/" && displayValue == "0") {alert(snark)}
+  else if (operator === undefined || operator === "=")
+    {a = parseFloat(displayValue)
     operator = "+"
     displayValue = ""
-    console.log("a op b is " + a, operator, b)
     }
-  else if (operator == "/" && displayValue == "0") {alert(snark)}
+  else if (operator !== undefined && displayValue == "") {
+    operator = "+"
+    }
   else if (operator !== undefined) {
-   b = parseFloat(displayValue, 10)
-   a = parseFloat(a)
-   console.log(a, typeof(a))
-   a = operate(a, operator, b)
-   console.log(a, typeof(a))
-   a = tooMuch(a)
-   document.querySelector("#screen").innerHTML = a
-   displayValue =""
-   operator = "+"
-   }
-   document.querySelector("#operatorWindow").innerHTML = operator
-}
+    b = parseFloat(displayValue)
+    a = parseFloat(a)
+    a = operate(a, operator, b)
+    // a = tooMuch(a)
+    document.querySelector("#screen").innerHTML = a
+    displayValue =""
+    operator = "+"
+    }
+    document.querySelector("#operatorWindow").innerHTML = operator
+  }
+
 
 const zeroButton = document.querySelector("#zeroButton");
 zeroButton.addEventListener("click", zeroFunc);
