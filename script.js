@@ -29,11 +29,6 @@ const tooMuch = (number) => {
     number = number.substring(0,length)
     return number};
 
-let a
-let b
-let operator
-let displayValue = ""
-let length = 9
 const zero = "0"
 const one = "1"
 const two = "2"
@@ -44,8 +39,16 @@ const six = "6"
 const seven = "7"
 const eight = "8"
 const nine = "9"
+
+let a = zero
+let b
+let operator
+let displayValue = ""
+let length = 9
+
 const snark = "Dividing by zero yields infinity"
 const lengthWarning ="limited to " + length + " places"
+
 
 const cButton = document.querySelector("#CButton");
 cButton.addEventListener("click", cFunc);
@@ -77,8 +80,10 @@ function percentFunc() {
 const divideButton = document.querySelector("#divideButton");
 divideButton.addEventListener("click", divideFunc);
 function divideFunc() {
-      if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-      else if (operator === undefined || operator === "=") 
+      // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+      // else 
+      
+      if (operator === undefined || operator === "=") 
       {a = parseFloat(displayValue, 10)
        operator = "/"
       displayValue =""
@@ -169,8 +174,10 @@ const xButton = document.querySelector("#xButton");
 xButton.addEventListener("click", xFunc);
 function xFunc() {
     console.log(operator)
-    if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-    else if (operator === undefined || operator === "=") 
+    // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+    // else 
+    
+    if (operator === undefined || operator === "=") 
     {a = parseFloat(displayValue, 10)
      operator = "*"
     displayValue = ""
@@ -258,12 +265,13 @@ function sixFunc() {
 const subtractButton = document.querySelector("#subtractButton");
 subtractButton.addEventListener("click", subtractFunc);
 function subtractFunc() {
-  if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-  else if (operator === undefined || operator === "=") 
+  // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+  // else 
+  
+  if (operator === undefined || operator === "=") 
   {a = parseFloat(displayValue, 10)
    operator = "-"
-  displayValue =""
-    }
+  displayValue =""}
   else if (operator == "/" && displayValue == "0") {alert(snark)}
   else if (operator !== undefined) 
   {b = parseFloat(displayValue, 10)
@@ -351,8 +359,10 @@ function threeFunc() {
 const plusButton = document.querySelector("#plusButton");
 plusButton.addEventListener("click", plusFunc);
 function plusFunc() {
-  if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
-  else if (operator === undefined || operator === "=") 
+  // if (displayValue == "") {alert("Be careful hitting those operator buttons twice")}
+  // else 
+  
+  if (operator === undefined || operator === "=") 
     {
     a = parseFloat(displayValue, 10)
     operator = "+"
