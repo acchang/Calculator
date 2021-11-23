@@ -53,11 +53,11 @@ const lengthWarning ="limited to " + length + " places"
 const cButton = document.querySelector("#CButton");
 cButton.addEventListener("click", cFunc);
 function cFunc() {
-  displayValue = ""
-  a = ""
+  displayValue = "0"
+  a = zero
   b = ""
   operator = undefined
-  document.querySelector("#screen").innerHTML = "Cleared"
+  document.querySelector("#screen").innerHTML = "0"
   document.querySelector("#operatorWindow").innerHTML = ""
     };
 
@@ -102,28 +102,64 @@ function divideFunc() {
        document.querySelector("#operatorWindow").innerHTML = operator
 };
 
+// const sevenButton = document.querySelector("#sevenButton");
+// sevenButton.addEventListener("click", sevenFunc);
+// function sevenFunc() {  
+//   if (operator === "=" && displayValue.includes(".")){
+//     operator = undefined
+//     document.querySelector("#screen").innerHTML = displayValue + 7
+//     displayValue = displayValue.concat(seven)
+//   }
+//   else if (operator === "=" && !displayValue.includes(".")){
+//     displayValue=""
+//     operator = undefined
+//     document.querySelector("#screen").innerHTML = displayValue + 7
+//     displayValue = displayValue.concat(seven)
+//   }
+//   else {
+//     document.querySelector("#screen").innerHTML = displayValue + 7
+//     displayValue = displayValue.concat(seven)
+//   }
+//   if (displayValue.length > length) {
+//     alert(lengthWarning)
+//     displayValue = displayValue.substring(0,length)}}
+
+
+
 const sevenButton = document.querySelector("#sevenButton");
 sevenButton.addEventListener("click", sevenFunc);
 function sevenFunc() {  
-  if (operator === "=" && displayValue.includes(".")){
-    operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 7
-    displayValue = displayValue.concat(seven)
-  }
-  else if (operator === "=" && !displayValue.includes(".")){
+  if ((displayValue=="" && operator === undefined) || (displayValue=="" && operator === "="))
+    {
+    console.log("no OP or OP =")
     displayValue=""
     operator = undefined
-    document.querySelector("#screen").innerHTML = displayValue + 7
-    displayValue = displayValue.concat(seven)
-  }
+    document.querySelector("#screen").innerHTML = 7
+    displayValue = seven
+    }
+  else if ((displayValue != "" && operator === undefined) || (displayValue != "" && operator === "="))
+    {
+    console.log("test case")
+    operator = undefined
+    document.querySelector("#screen").innerHTML = 7
+    displayValue = seven
+// the current way I cannot concat after evaluating, it is just one digit and no more
+// afetr eval, DV != ""
+// if I set DV to nil then I can concat but I cannot start by multiplying by 7
+    }
   else {
     document.querySelector("#screen").innerHTML = displayValue + 7
     displayValue = displayValue.concat(seven)
   }
   if (displayValue.length > length) {
     alert(lengthWarning)
-    displayValue = displayValue.substring(0,length)}}
+    displayValue = displayValue.substring(0,length)}
+  }
 
+
+  // problem, after evaluating I want to start from seven but it concats
+
+    
 
 const eightButton = document.querySelector("#eightButton");
 eightButton.addEventListener("click", eightFunc);
