@@ -26,10 +26,12 @@ const tooMuch = (number) => {
   number = number.toString();
   if (number.length > length)
    {alert("This calculator only goes to 9 places")}
-    // number = number.substring(0,length)
-  inty = parseInt(number)
-    // result = Math.inty.toPrecision(6)
-  return inty};
+    number = parseFloat(number)
+    console.log(number)
+    number = number.toPrecision(8)
+    number = number.toString()
+  return number
+};
 
 
 const zero = "0"
