@@ -464,6 +464,15 @@ function evaluateFunc() {
   b = parseFloat(displayValue, 10)
   a = parseFloat(a)
   if (operator == "/" && b == "0") {alert(snark)}
+  else if (operator == "=") {
+    a = operate(a, operator, b)
+    document.querySelector("#operatorWindow").innerHTML = "="
+    a = tooMuch(a)
+    document.querySelector("#screen").innerHTML = a
+    operator = "="
+    document.querySelector("#operatorWindow").innerHTML = operator
+    displayValue = a
+  }
   else 
   a = operate(a, operator, b)
   console.log(a)
@@ -473,7 +482,6 @@ function evaluateFunc() {
   operator = "="
   document.querySelector("#operatorWindow").innerHTML = operator
   displayValue = a
-//   .toString();
 }
 
 let keyboard = {
