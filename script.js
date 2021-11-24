@@ -22,16 +22,19 @@ const divide = (a,b) => {
   else if (operator === "/") {return divide(a,b)}
 };
 
-const tooMuch = (number) => {
+function tooMuch(number) {
   number = number.toString();
   if (number.length > length)
-   {alert("This calculator only goes to 9 places")}
+   {alert("This calculator only goes to 9 places")
     number = parseFloat(number)
     console.log(number)
     number = number.toPrecision(8)
     number = number.toString()
   return number
-};
+  }
+  else return number 
+}
+;
 
 
 const zero = "0"
@@ -469,7 +472,8 @@ function evaluateFunc() {
   document.querySelector("#screen").innerHTML = a
   operator = "="
   document.querySelector("#operatorWindow").innerHTML = operator
-  displayValue = a.toString();
+  displayValue = a
+//   .toString();
 }
 
 let keyboard = {
