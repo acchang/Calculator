@@ -26,8 +26,11 @@ const tooMuch = (number) => {
   number = number.toString();
   if (number.length > length)
    {alert("This calculator only goes to 9 places")}
-    number = number.substring(0,length)
-    return number};
+    // number = number.substring(0,length)
+  inty = parseInt(number)
+    // result = Math.inty.toPrecision(6)
+  return inty};
+
 
 const zero = "0"
 const one = "1"
@@ -93,7 +96,7 @@ function divideFunc() {
     b = parseFloat(displayValue)
     a = parseFloat(a)
     a = operate(a, operator, b)
-    // a = tooMuch(a)
+    a = tooMuch(a)
     document.querySelector("#screen").innerHTML = a
     displayValue =""
     operator = "/"
@@ -190,12 +193,12 @@ function xFunc() {
     b = parseFloat(displayValue)
     a = parseFloat(a)
     a = operate(a, operator, b)
-    // a = tooMuch(a)
+    a = tooMuch(a)
     document.querySelector("#screen").innerHTML = a
     displayValue =""
     operator = "*"
     }
-    document.querySelector("#operatorWindow").innerHTML = operator
+    document.querySelector("#operatorWindow").innerHTML = "x"
   }
 
 const fourButton = document.querySelector("#fourButton");
@@ -289,7 +292,7 @@ function subtractFunc() {
     b = parseFloat(displayValue)
     a = parseFloat(a)
     a = operate(a, operator, b)
-    // a = tooMuch(a)
+    a = tooMuch(a)
     document.querySelector("#screen").innerHTML = a
     displayValue =""
     operator = "-"
@@ -390,7 +393,7 @@ function plusFunc() {
     b = parseFloat(displayValue)
     a = parseFloat(a)
     a = operate(a, operator, b)
-    // a = tooMuch(a)
+    a = tooMuch(a)
     document.querySelector("#screen").innerHTML = a
     displayValue =""
     operator = "+"
@@ -493,18 +496,8 @@ function checkKeyPressed(e) {
   if (keyboard[e.keyCode])
       keyboard[e.keyCode]();
 }
-// document.addEventListener("keydown", checkKeyPressed, false);
-// function checkKeyPressed(e) {
-//     if (keyboard[e.keyCode] != undefined) {
-//          keyboard[e.keyCode]();}
-// };
 
-
-// Two bugs I left alone:
+// A bug I left alone:
 // (1) Numbers over 9 digits are truncated, it would be nice to round
 // but floating point means you need to allow .000000001 and 280.070001
 // the number of spaces after decimals will vary.
-
-// (2) Pressing one operator, then another gets NaN NaN 
-// TOP warns "Pressing = before entering numbers cause problems!"
-// this is a rare case, I've seen old calculators do the same
