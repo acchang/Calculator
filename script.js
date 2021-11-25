@@ -50,6 +50,7 @@ const nine = "9"
 
 let a = zero
 let b
+let evalop
 let operator
 let displayValue = "0"
 let length = 9
@@ -461,27 +462,31 @@ function decimalFunc() {
 const evaluateButton = document.querySelector("#evaluateButton");
 evaluateButton.addEventListener("click", evaluateFunc);
 function evaluateFunc() {
-  b = parseFloat(displayValue, 10)
-  a = parseFloat(a)
   if (operator == "/" && b == "0") {alert(snark)}
   else if (operator == "=") {
-    a = operate(a, operator, b)
-    document.querySelector("#operatorWindow").innerHTML = "="
-    a = tooMuch(a)
-    document.querySelector("#screen").innerHTML = a
-    operator = "="
-    document.querySelector("#operatorWindow").innerHTML = operator
-    displayValue = a
+  console.log("eval1 " + a, evalops, b)
+  b = parseFloat(b)
+  a = parseFloat(a)
+  a = operate(a, evalops, b)
+  console.log("eval2 " + a, evalops, b)
+  a = tooMuch(a)
+  document.querySelector("#screen").innerHTML = a
+  displayValue = a
   }
-  else 
+  else if (operator != "=") {
+  b = parseFloat(displayValue)
+  a = parseFloat(a)
   a = operate(a, operator, b)
-  console.log(a)
+  console.log(a, operator, b)
   document.querySelector("#operatorWindow").innerHTML = "="
   a = tooMuch(a)
   document.querySelector("#screen").innerHTML = a
+  evalops = operator
   operator = "="
   document.querySelector("#operatorWindow").innerHTML = operator
   displayValue = a
+  console.log("two:" + a, operator, evalops, b)
+  }
 }
 
 let keyboard = {
@@ -510,8 +515,3 @@ function checkKeyPressed(e) {
   if (keyboard[e.keyCode])
       keyboard[e.keyCode]();
 }
-
-// A bug I left alone:
-// (1) Numbers over 9 digits are truncated, it would be nice to round
-// but floating point means you need to allow .000000001 and 280.070001
-// the number of spaces after decimals will vary.
